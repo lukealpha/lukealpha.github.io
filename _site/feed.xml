@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 25 Dec 2021 22:22:24 +0800</pubDate>
-    <lastBuildDate>Sat, 25 Dec 2021 22:22:24 +0800</lastBuildDate>
+    <pubDate>Sat, 25 Dec 2021 22:54:03 +0800</pubDate>
+    <lastBuildDate>Sat, 25 Dec 2021 22:54:03 +0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -18,7 +18,7 @@
 
 &lt;h2 id=&quot;常见hash的核心原理&quot;&gt;常见$Hash$的核心原理：&lt;/h2&gt;
 
-&lt;center&gt;$hash(i) = hash(i-1)*p + a(i)$&lt;/center&gt;
+\[hash(i) = hash(i-1)*p + a(i)\]
 
 &lt;p&gt;不过，如果仅仅是应用这个核心原理，那么出现&lt;em&gt;Hash冲突&lt;/em&gt;的概率还是较高的。&lt;/p&gt;
 
