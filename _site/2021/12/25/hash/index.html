@@ -276,7 +276,7 @@
   <p>Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围，并尽可能的减少冲突。</p>
 </blockquote>
 
-<h2 id="常见hash的核心原理">常见$Hash$的核心原理：</h2>
+<h2 id="常见hash的核心原理">常见$Hash$的核心原理</h2>
 
 \[hash(i) = hash(i-1)*p + a(i)\]
 
@@ -285,7 +285,7 @@
 <p>于是，下面再介绍几种常见的<em>Hash</em>方法，以尽可能减小<em>Hash冲突</em>的几率。</p>
 
 <h2 id="单哈希方法">单哈希方法</h2>
-<h3 id="自然溢出法">自然溢出法：</h3>
+<h3 id="自然溢出法">自然溢出法</h3>
 
 \[hash(i) = hash(i-1)*p + a(i)\]
 
@@ -295,11 +295,11 @@
 </pre></td><td class="rouge-code"><pre><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">hash</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p><em>unsigned long long</em>为无符号位长整型，可以实现自然溢出，相当于其存储的数值自动对$2^{64}$取模</p>
-<h3 id="通过取模优化">通过取模优化:</h3>
+<h3 id="通过取模优化">通过取模优化</h3>
 
 \[hash(i) = [hash(i-1)*p + a(i)] \% mod\]
 
-<p>只需在原来的基础上进行进行取模即可，不过$p$和$mod$的取值有些需要注意的地方。其中$p$和$mod$都应该取一个质数，$p$应该大于原字符串中字符的定义域，&amp;mod&amp;应尽量取较大的数。这样可以有效降低冲突的几率。</p>
+<p>只需在原来的基础上进行进行取模即可，不过$p$和$mod$的取值有些需要注意的地方。其中$p$和$mod$都应该取一个质数，$p$应该大于原字符串中字符的定义域，$mod$应尽量取较大的数。这样可以有效降低冲突的几率。</p>
 
 <h2 id="双哈希方法">双哈希方法</h2>
 <p>顾名思义，使用两重哈希（使用不同的单哈希方法，或者取不同的$p$和$mod$）。</p>
@@ -314,7 +314,7 @@
 <p><a href="https://www.luogu.com.cn/problem/P3370">P3370 【模板】字符串哈希 - 洛谷</a></p>
 
 <h3 id="示例代码">示例代码</h3>
-<h3 id="自然溢出"><em>自然溢出：</em></h3>
+<h3 id="自然溢出"><em>自然溢出</em></h3>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3

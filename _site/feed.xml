@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 25 Dec 2021 23:02:30 +0800</pubDate>
-    <lastBuildDate>Sat, 25 Dec 2021 23:02:30 +0800</lastBuildDate>
+    <pubDate>Sat, 25 Dec 2021 23:06:49 +0800</pubDate>
+    <lastBuildDate>Sat, 25 Dec 2021 23:06:49 +0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -16,7 +16,7 @@
   &lt;p&gt;Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围，并尽可能的减少冲突。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;常见hash的核心原理&quot;&gt;常见$Hash$的核心原理：&lt;/h2&gt;
+&lt;h2 id=&quot;常见hash的核心原理&quot;&gt;常见$Hash$的核心原理&lt;/h2&gt;
 
 \[hash(i) = hash(i-1)*p + a(i)\]
 
@@ -25,7 +25,7 @@
 &lt;p&gt;于是，下面再介绍几种常见的&lt;em&gt;Hash&lt;/em&gt;方法，以尽可能减小&lt;em&gt;Hash冲突&lt;/em&gt;的几率。&lt;/p&gt;
 
 &lt;h2 id=&quot;单哈希方法&quot;&gt;单哈希方法&lt;/h2&gt;
-&lt;h3 id=&quot;自然溢出法&quot;&gt;自然溢出法：&lt;/h3&gt;
+&lt;h3 id=&quot;自然溢出法&quot;&gt;自然溢出法&lt;/h3&gt;
 
 \[hash(i) = hash(i-1)*p + a(i)\]
 
@@ -35,11 +35,11 @@
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;unsigned long long&lt;/em&gt;为无符号位长整型，可以实现自然溢出，相当于其存储的数值自动对$2^{64}$取模&lt;/p&gt;
-&lt;h3 id=&quot;通过取模优化&quot;&gt;通过取模优化:&lt;/h3&gt;
+&lt;h3 id=&quot;通过取模优化&quot;&gt;通过取模优化&lt;/h3&gt;
 
 \[hash(i) = [hash(i-1)*p + a(i)] \% mod\]
 
-&lt;p&gt;只需在原来的基础上进行进行取模即可，不过$p$和$mod$的取值有些需要注意的地方。其中$p$和$mod$都应该取一个质数，$p$应该大于原字符串中字符的定义域，&amp;amp;mod&amp;amp;应尽量取较大的数。这样可以有效降低冲突的几率。&lt;/p&gt;
+&lt;p&gt;只需在原来的基础上进行进行取模即可，不过$p$和$mod$的取值有些需要注意的地方。其中$p$和$mod$都应该取一个质数，$p$应该大于原字符串中字符的定义域，$mod$应尽量取较大的数。这样可以有效降低冲突的几率。&lt;/p&gt;
 
 &lt;h2 id=&quot;双哈希方法&quot;&gt;双哈希方法&lt;/h2&gt;
 &lt;p&gt;顾名思义，使用两重哈希（使用不同的单哈希方法，或者取不同的$p$和$mod$）。&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P3370&quot;&gt;P3370 【模板】字符串哈希 - 洛谷&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;示例代码&quot;&gt;示例代码&lt;/h3&gt;
-&lt;h3 id=&quot;自然溢出&quot;&gt;&lt;em&gt;自然溢出：&lt;/em&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;自然溢出&quot;&gt;&lt;em&gt;自然溢出&lt;/em&gt;&lt;/h3&gt;
 &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
