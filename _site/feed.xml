@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 25 Feb 2022 20:34:36 +0800</pubDate>
-    <lastBuildDate>Fri, 25 Feb 2022 20:34:36 +0800</lastBuildDate>
+    <pubDate>Fri, 25 Feb 2022 20:42:25 +0800</pubDate>
+    <lastBuildDate>Fri, 25 Feb 2022 20:42:25 +0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -137,7 +137,7 @@
 
     &lt;p&gt;由于节点热度产生的流量，我们称为“热度流量”，记为$Q_2$。&lt;/p&gt;
 
-    &lt;p&gt;模型在实际使用中，可以为节点设定热度参数，记为$k_{h}$ ($k_{h} \in \Z$)。生活中，不同的节点常常有不同的热度。购物中心、学校、医院等场所通常拥有较高的热度，他们会给周边道路产生额外的“热度流量”。&lt;/p&gt;
+    &lt;p&gt;模型在实际使用中，可以为节点设定热度参数，记为$k_{h}$ ($k_{h} \in \mathbb{Z}$)。生活中，不同的节点常常有不同的热度。购物中心、学校、医院等场所通常拥有较高的热度，他们会给周边道路产生额外的“热度流量”。&lt;/p&gt;
 
     &lt;p&gt;热度参数的设定需要经过不断微调，最终目标仍是使不同场所间的热度参数所成的比例与真实热度所成的比例相同。&lt;/p&gt;
 
@@ -153,16 +153,19 @@
   图4
 &lt;/p&gt;
 
-&lt;p&gt;根据“结构性流量”和“热度流量”，我们最终能够得到这条边的“绝对流量”。
-\(Q_{Absolute} = Q_1+Q_2\)&lt;/p&gt;
+&lt;p&gt;根据“结构性流量”和“热度流量”，我们最终能够得到这条边的“绝对流量”。&lt;/p&gt;
+
+\[Q_{Absolute} = Q_1+Q_2\]
 
 &lt;h4 id=&quot;绝对流量的转化&quot;&gt;“绝对流量”的转化&lt;/h4&gt;
 
 &lt;p&gt;在实际生活中，考虑到流量不会变得无限大，因此需要将“绝对流量”进行转化。&lt;/p&gt;
 
-&lt;p&gt;这里引入Sigmoid函数。定义如下：
-\(Sigmoid(x) = \frac{1}{1+e^{-x}}\)
-其函数图像如下（图5）：&lt;/p&gt;
+&lt;p&gt;这里引入Sigmoid函数。定义如下：&lt;/p&gt;
+
+\[Sigmoid(x) = \frac{1}{1+e^{-x}}\]
+
+&lt;p&gt;其函数图像如下（图5）：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/Sigmoid.jpg&quot; alt=&quot;Sigmoid&quot; /&gt;&lt;/p&gt;
 
