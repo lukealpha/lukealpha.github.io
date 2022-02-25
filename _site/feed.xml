@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 25 Feb 2022 20:13:19 +0800</pubDate>
-    <lastBuildDate>Fri, 25 Feb 2022 20:13:19 +0800</lastBuildDate>
+    <pubDate>Fri, 25 Feb 2022 20:34:36 +0800</pubDate>
+    <lastBuildDate>Fri, 25 Feb 2022 20:34:36 +0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -62,7 +62,7 @@
 
 &lt;h4 id=&quot;图的概念&quot;&gt;“图”的概念&lt;/h4&gt;
 
-&lt;p&gt;&lt;strong&gt;图&lt;/strong&gt;（Graph）是用于表示物体与物体之间存在某种关系的结构（图1）。数学抽象后的“物体”称作&lt;strong&gt;节点&lt;/strong&gt;或&lt;strong&gt;顶点&lt;/strong&gt;（英语：Vertex，node或point），节点间的相关关系则称作边。在描绘一张图的时候，通常用一组点或小圆圈表示节点，其间的边则使用直线或曲线。特别的，若为图中的每一条都规定方向，则称这张图为有向图；若不为图中的边规定方向，则称这张图为无向图。&lt;img src=&quot;/Users/lukealpha/Downloads/graph.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图&lt;/strong&gt;（Graph）是用于表示物体与物体之间存在某种关系的结构（图1）。数学抽象后的“物体”称作&lt;strong&gt;节点&lt;/strong&gt;或&lt;strong&gt;顶点&lt;/strong&gt;（英语：Vertex，node或point），节点间的相关关系则称作边。在描绘一张图的时候，通常用一组点或小圆圈表示节点，其间的边则使用直线或曲线。特别的，若为图中的每一条都规定方向，则称这张图为有向图；若不为图中的边规定方向，则称这张图为无向图。&lt;img src=&quot;/img/2022-02-19_model/graph.png&quot; alt=&quot;graph&quot; /&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
     图1
@@ -92,7 +92,7 @@
 
 &lt;p&gt;现以下图（图2）作为范例研究，研究这条边的“绝对流量”。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph1.png&quot; alt=&quot;graph1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph1.png&quot; alt=&quot;graph1&quot; /&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   图2
@@ -124,7 +124,7 @@
 
         &lt;p&gt;规定除该边以外的连接该边两端点的简单路径数的相反数为该边的“结构性流量”。以“6–10”连边为例（图3），其“结构性流量”为-3。&lt;/p&gt;
 
-        &lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph_annotated.png&quot; alt=&quot;graph_annotated&quot; /&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph_annotated.png&quot; alt=&quot;graph_annotated&quot; /&gt;&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
 
@@ -145,7 +145,7 @@
 
     &lt;p&gt;仍以上述图网为例，若设6、4、1号节点的$k_h$分别为2，3，1，则各条边“热度流量”如下（图4）：&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph_hotspot.png&quot; alt=&quot;graph_hotspot&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph_hotspot.png&quot; alt=&quot;graph_hotspot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -164,7 +164,7 @@
 \(Sigmoid(x) = \frac{1}{1+e^{-x}}\)
 其函数图像如下（图5）：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/Sigmoid.jpg&quot; alt=&quot;Sigmoid&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/Sigmoid.jpg&quot; alt=&quot;Sigmoid&quot; /&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
     图5
@@ -180,7 +180,7 @@
 
 &lt;p&gt;这样，所有的相对流量$Q$均为范围在$(0,100)$的数值，效果如下（图6）。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph_qabsolute.png&quot; alt=&quot;graph_qabsolute&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph_qabsolute.png&quot; alt=&quot;graph_qabsolute&quot; /&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
  图6
@@ -194,13 +194,13 @@
   &lt;li&gt;&lt;strong&gt;相对流量&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph_qabsolute.png&quot; alt=&quot;graph_qabsolute&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph_qabsolute.png&quot; alt=&quot;graph_qabsolute&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;相对道路宽度&lt;/strong&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/graph_w.png&quot; alt=&quot;graph_w&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/graph_w.png&quot; alt=&quot;graph_w&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -208,7 +208,7 @@
 
 &lt;p&gt;根据公式$P = \frac{Q}{w\cdot\bar{Q_{Absolute}}}$，最终得到的道路压力值如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/lukealpha/Downloads/Pressure_results.png&quot; alt=&quot;Pressure_results&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2022-02-19_model/Pressure_results.png&quot; alt=&quot;Pressure_results&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
 
