@@ -12,31 +12,24 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Hash相关 - decoder24">
+        content="一种简单模型 - decoder24">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="$Hash$算法
-
-  Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围，并尽可能的减少冲突。
-
+    <meta property="og:description" content="研究背景
 ">
     
-    <meta property="article:published_time" content=" 2021-12-25T00:00:00Z">
+    <meta property="article:published_time" content=" 2022-02-19T00:00:00Z">
     
     
-    <meta property="article:author" content="Luke Alpha">
+    <meta property="article:author" content="lukealpha">
     
-    
-    <meta property="article:tag" content="Hash">
-    
-    <meta property="article:tag" content="字符串">
     
     
     <meta property="og:image" content="http://localhost:4000">
-    <meta property="og:url" content="http://localhost:4000/2021/12/25/hash/">
+    <meta property="og:url" content="http://localhost:4000/2022/02/19/model/">
     <meta property="og:site_name" content="decoder24">
 
-    <title>Hash相关 - decoder24</title>
+    <title>一种简单模型 - decoder24</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -45,7 +38,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2021/12/25/hash/">
+    <link rel="canonical" href="http://localhost:4000/2022/02/19/model/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css">
@@ -237,15 +230,11 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/archive/?tag=Hash" title="Hash">Hash</a>
-                        
-                        <a class="tag" href="/archive/?tag=%E5%AD%97%E7%AC%A6%E4%B8%B2" title="字符串">字符串</a>
-                        
                     </div>
-                    <h1>Hash相关</h1>
+                    <h1>一种简单模型</h1>
                     
-                    <h2 class="subheading">模板写法、例题和应用技巧</h2>
-                    <span class="meta">Posted by Luke Alpha on December 25, 2021</span>
+                    <h2 class="subheading">对城市道路压力评估方法的探索</h2>
+                    <span class="meta">Posted by lukealpha on February 19, 2022</span>
                 </div>
             </div>
         </div>
@@ -271,139 +260,220 @@
                 <!-- Multi-Lingual -->
                 
 
-				<h1 id="hash算法">$Hash$算法</h1>
+				<h2 id="研究背景">研究背景</h2>
+
+<p>现如今，随着人们生活质量的提高，大多数家庭都有了私家车，这也导致了城市拥堵现象的出现。为了及时发现交通拥堵的规律及其相关影响因素，对道路压力进行评估，L与G同学进行调研。</p>
+
+<h2 id="研究过程">研究过程</h2>
+
+<p>L与G同学来到某个商业中心点，观察其辐射范围内的道路拥堵情况，总结出与交通拥堵直接相关的多条因素，并将其抽象成数学模型，进行一定的定性和定量处理，与“图”的概念进行相应的拟合，总结出评估道路负载的方法。</p>
+
+<h2 id="对影响城市道路负载因素的探索">对影响城市道路负载因素的探索</h2>
+
+<p>道路负载$P$，$P$是一个相对数值，能够衡量不同道路所承受的压力大小。$P$同时也能表示车辆在通过该路段时的通行压力。</p>
+
+<h3 id="相对流量">相对流量</h3>
+
+<p>定义$Q$表示道路的<strong>相对流量</strong>。对于车流量的衡量，我们采用一个相对值，具体见<strong>“相对流量的计算”</strong>部分。</p>
+
+<p>认为车流量越大，道路的负载越大，道路负载与车流量成正比。</p>
+
+\[P \propto Q\]
+
+<h3 id="相对道路宽度">相对道路宽度</h3>
+
+<p>对于道路的宽度$w$，我们仍使用一个<strong>相对数值</strong>。</p>
+
+<p>认为道路宽度越大，道路负载越小，道路的负载与道路宽度成反比。</p>
+
+\[P \propto \frac{1}{w}\]
+
 <blockquote>
-  <p>Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围，并尽可能的减少冲突。</p>
+  <p>道路的相对宽度$w$按如下方法计算。</p>
+
+  <p>规定道路的实际宽度为$l$，单位为$m$。我们需要先计算 $\bar{l}$。</p>
+
+\[\bar{l} = l_1 +l_2 + l_3 + ... + l_n\]
+
+  <p>根据$\bar{l}$进一步计算每一条路的相对宽度。</p>
+
+\[w_i = \frac{l_i}{\bar{l}}\]
+
 </blockquote>
 
-<h2 id="常见hash的核心原理">常见$Hash$的核心原理</h2>
+<p>最终，有如下公式（其中$\bar{Q_{Absolute}}$在后文给出）：</p>
 
-\[hash(i) = hash(i-1)*p + a(i)\]
+\[P = \frac{Q}{w\cdot\bar{Q_{Absolute}}}\]
 
-<p>不过，如果仅仅是应用这个核心原理，那么出现<em>Hash冲突</em>的概率还是较高的。</p>
+<h2 id="在城市路网中流量的计算方法">在城市路网中流量的计算方法</h2>
 
-<p>于是，下面再介绍几种常见的<em>Hash</em>方法，以尽可能减小<em>Hash冲突</em>的几率。</p>
+<h3 id="图的引入">“图”的引入</h3>
 
-<h2 id="单哈希方法">单哈希方法</h2>
-<h3 id="自然溢出法">自然溢出法</h3>
+<h4 id="图的概念">“图”的概念</h4>
 
-\[hash(i) = hash(i-1)*p + a(i)\]
+<p><strong>图</strong>（Graph）是用于表示物体与物体之间存在某种关系的结构（图1）。数学抽象后的“物体”称作<strong>节点</strong>或<strong>顶点</strong>（英语：Vertex，node或point），节点间的相关关系则称作边。在描绘一张图的时候，通常用一组点或小圆圈表示节点，其间的边则使用直线或曲线。特别的，若为图中的每一条都规定方向，则称这张图为有向图；若不为图中的边规定方向，则称这张图为无向图。<img src="/Users/lukealpha/Downloads/graph.png" alt="graph" /></p>
 
-<p>相较核心原理没有较大的改变，但是在定义<em>Hash</em>数组时，应采用<em>unsigned long long</em>类型</p>
+<p align="center">
+    图1
+</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">hash</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p><em>unsigned long long</em>为无符号位长整型，可以实现自然溢出，相当于其存储的数值自动对$2^{64}$取模</p>
-<h3 id="通过取模优化">通过取模优化</h3>
+<p>在这里我们将城市路网抽象为一张“无向图”。将图中的<strong>节点</strong>定义为城市中可以访问的重要节点（如公共场所），在城市节点之间有通路相连，使得不同的城市节点之间可以<strong>相互到达</strong>。</p>
 
-\[hash(i) = [hash(i-1)*p + a(i)] \% mod\]
+<h4 id="图中的简单路径">“图”中的“简单路径”</h4>
 
-<p>只需在原来的基础上进行进行取模即可，不过$p$和$mod$的取值有些需要注意的地方。其中$p$和$mod$都应该取一个质数，$p$应该大于原字符串中字符的定义域，$mod$应尽量取较大的数。这样可以有效降低冲突的几率。</p>
+<p>一个图中一条路径（path）是一个顶点序列，使得从它的每个顶点有一条边到该序列中下一顶点。有限路径有一个最先顶点，称为起点，和最后顶点，称为末点。两者都成为这条路径的端点。路径中其它顶点成为内点。一个环是起点与末点相同的路径。注意到一个环中起点的选取是任意的。</p>
 
-<h2 id="双哈希方法">双哈希方法</h2>
-<p>顾名思义，使用两重哈希（使用不同的单哈希方法，或者取不同的$p$和$mod$）。</p>
+<p>我们称一条不是环的路径，以及起点和终点相同但路径总长为 $0$ 的路径“简单路径”。</p>
 
-<p>对于两个字符串$S,T$的哈希值，当且仅当如下条件成立时，我们认为两个字符串是相等的。</p>
+<h4 id="图中的关键路径">“图”中的关键路径</h4>
 
-\[Hash_1(S) == Hash_1(T)\quad \&amp;\&amp; \quad Hash_2(S) == Hash_2(T)\]
+<p>从图中选取一条边，将该边从图中删除。若删除后，整个图无法保持原有的连通性，那么称这条边为该图的关键路径。</p>
 
-<p>这样一来，<em>Hash冲突</em>的几率又被大大降低。</p>
+<h4 id="图中的非关键路径">“图”中的非关键路径</h4>
 
-<h2 id="hash模板题">$Hash$模板题</h2>
-<p><a href="https://www.luogu.com.cn/problem/P3370">P3370 【模板】字符串哈希 - 洛谷</a></p>
+<p>类似的，从图中选取一条边，将该边从图中删除。若删除后，整个图仍能保持原有的连通性，那么称这条边为该图的非关键路径。</p>
 
-<h3 id="示例代码">示例代码</h3>
-<h3 id="自然溢出"><em>自然溢出</em></h3>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-</pre></td><td class="rouge-code"><pre><span class="cp">#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-#define ull unsigned long long
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">const</span> <span class="n">ull</span> <span class="n">mod</span> <span class="o">=</span> <span class="mi">212370440130137957ll</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">131</span><span class="p">;</span>
-<span class="n">ull</span> <span class="n">a</span><span class="p">[</span><span class="mi">10010</span><span class="p">];</span>
-<span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10010</span><span class="p">];</span>
-<span class="n">ull</span> <span class="nf">hashe</span><span class="p">(</span><span class="kt">char</span> <span class="n">str</span><span class="p">[]){</span>
-    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-    <span class="n">ull</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">){</span>
-        <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">ans</span> <span class="o">*</span> <span class="n">p</span> <span class="o">+</span> <span class="p">(</span><span class="n">ull</span><span class="p">)</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">){</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
-        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hashe</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">sort</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]){</span>
-            <span class="n">ans</span> <span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">ans</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<h3 id="相对流量的计算">相对流量的计算</h3>
 
+<h4 id="绝对流量的计算">“绝对流量”的计算</h4>
+
+<p>为了简化模型的复杂度，我们可以先引入“绝对流量”的概念。“绝对流量”$Q_{Absolute}$按照如下方法计算。</p>
+
+<p>现以下图（图2）作为范例研究，研究这条边的“绝对流量”。</p>
+
+<p><img src="/Users/lukealpha/Downloads/graph1.png" alt="graph1" /></p>
+
+<p align="center">
+  图2
+</p>
+
+<ul>
+  <li>
+    <p><strong>“结构性流量” $Q_1$</strong></p>
+
+    <p>由路网结构产生的流量，我们称为“结构性流量”，记为 $Q_1$。</p>
+
+    <ul>
+      <li>
+        <p><strong>对于关键路径</strong></p>
+
+        <p>规定通过一条边的简单路径数为该边的“结构性流量”。以“5–3”连边为例（图3），其“结构性流量”为20。</p>
+
+        <p>为了方便计算，也可以使用如下转化。在使用计算机程序进行“绝对流量”的计算，该转化可利于设计计算复杂度更低的算法。</p>
+
+        <blockquote>
+          <p>通过一条路径的简单路径数为以该路径两端点为起点的、不经过该边的简单路径数的乘积。</p>
+
+\[Q_{1,AB} = Q_{1,A} \times Q_{1,B}\]
+
+        </blockquote>
+      </li>
+      <li>
+        <p><strong>对于非关键路径</strong></p>
+
+        <p>规定除该边以外的连接该边两端点的简单路径数的相反数为该边的“结构性流量”。以“6–10”连边为例（图3），其“结构性流量”为-3。</p>
+
+        <p><img src="/Users/lukealpha/Downloads/graph_annotated.png" alt="graph_annotated" /></p>
+      </li>
+    </ul>
+
+    <p align="center">
+  图3
+</p>
+  </li>
+  <li>
+    <p><strong>“热度流量”$Q_2$</strong></p>
+
+    <p>由于节点热度产生的流量，我们称为“热度流量”，记为$Q_2$。</p>
+
+    <p>模型在实际使用中，可以为节点设定热度参数，记为$k_{h}$ ($k_{h} \in \Z$)。生活中，不同的节点常常有不同的热度。购物中心、学校、医院等场所通常拥有较高的热度，他们会给周边道路产生额外的“热度流量”。</p>
+
+    <p>热度参数的设定需要经过不断微调，最终目标仍是使不同场所间的热度参数所成的比例与真实热度所成的比例相同。</p>
+
+    <p>一个热度参数为$k_{h}$ 的节点会为与其直接连的边带来$k_h$的“热度流量”，为与其间接连接的次级边带来$k_h-1$的“热度流量”，为与其间接连接的更次级边带来$k_h-2$的“热度流量”，……以此类推，直到产生的“热度流量”变为$0$。特别的，在环中，一条边可能产生多个“热度流量”。</p>
+
+    <p>仍以上述图网为例，若设6、4、1号节点的$k_h$分别为2，3，1，则各条边“热度流量”如下（图4）：</p>
+
+    <p><img src="/Users/lukealpha/Downloads/graph_hotspot.png" alt="graph_hotspot" /></p>
+  </li>
+</ul>
+
+<p align="center">
+  图4
+</p>
+
+<p>根据“结构性流量”和“热度流量”，我们最终能够得到这条边的“绝对流量”。
+\(Q_{Absolute} = Q_1+Q_2\)</p>
+
+<h4 id="绝对流量的转化">“绝对流量”的转化</h4>
+
+<p>在实际生活中，考虑到流量不会变得无限大，因此需要将“绝对流量”进行转化。</p>
+
+<p>这里引入Sigmoid函数。定义如下：
+\(Sigmoid(x) = \frac{1}{1+e^{-x}}\)
+其函数图像如下（图5）：</p>
+
+<p><img src="/Users/lukealpha/Downloads/Sigmoid.jpg" alt="Sigmoid" /></p>
+
+<p align="center">
+    图5
+</p>
+
+<p>若路网中边的总数为$n$，计算路网中所有边产生的“绝对流量”的平均值：</p>
+
+\[\bar{Q_{Absolute}} = \frac{Q_1+Q_2+Q_3+...+Q_n}{n}\]
+
+<p>一条边的相对流量$Q$按如下方法计算：</p>
+
+\[Q = Sigmoid(\frac{Q_{Absolute}}{\bar{Q_{Absolute}}})\times100\]
+
+<p>这样，所有的相对流量$Q$均为范围在$(0,100)$的数值，效果如下（图6）。</p>
+
+<p><img src="/Users/lukealpha/Downloads/graph_qabsolute.png" alt="graph_qabsolute" /></p>
+
+<p align="center">
+ 图6
+</p>
+
+<h2 id="示例模型">示例模型</h2>
+
+<h3 id="示例数据">示例数据</h3>
+
+<ul>
+  <li><strong>相对流量</strong></li>
+</ul>
+
+<p><img src="/Users/lukealpha/Downloads/graph_qabsolute.png" alt="graph_qabsolute" /></p>
+
+<ul>
+  <li>
+    <p><strong>相对道路宽度</strong></p>
+
+    <p><img src="/Users/lukealpha/Downloads/graph_w.png" alt="graph_w" /></p>
+  </li>
+</ul>
+
+<h3 id="模型结果">模型结果</h3>
+
+<p>根据公式$P = \frac{Q}{w\cdot\bar{Q_{Absolute}}}$，最终得到的道路压力值如下：</p>
+
+<p><img src="/Users/lukealpha/Downloads/Pressure_results.png" alt="Pressure_results" /></p>
+
+<h2 id="总结">总结</h2>
+
+<p>该模型能够一定程度上评估城市道路的道路压力，对于道路压力较大的城市路段，可以采取引流、道路拓宽、调整信号灯时间等多种方式，以达到降低道路负载，缓解交通压力的目的。</p>
 
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/12/12/hello-2015/" data-toggle="tooltip" data-placement="top" title="Hello, decoder24">
+                        <a href="/2021/12/25/hash/" data-toggle="tooltip" data-placement="top" title="Hash相关">
                         Previous<br>
-                        <span>Hello, decoder24</span>
+                        <span>Hash相关</span>
                         </a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2022/02/19/model/" data-toggle="tooltip" data-placement="top" title="一种简单模型">
-                        Next<br>
-                        <span>一种简单模型</span>
-                        </a>
-                    </li>
                     
                 </ul>
                 <hr style="visibility: hidden;">
