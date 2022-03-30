@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "欧拉回路及其相关问题",
+      "subtitle" : "基本定理、DFS求解和Fleury算法",
+      "tags"     : "欧拉回路, 一笔画问题",
+      "url"      : "/2022/03/30/euler-graph/",
+      "date"     : "2022-03-30 00:00:00 +0800"
+    } ,
+  
+    {
       "title"    : "Public Polling",
       "subtitle" : "",
       "tags"     : "",

@@ -5,9 +5,80 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 22 Mar 2022 22:29:33 +0800</pubDate>
-    <lastBuildDate>Tue, 22 Mar 2022 22:29:33 +0800</lastBuildDate>
+    <pubDate>Wed, 30 Mar 2022 21:52:50 +0800</pubDate>
+    <lastBuildDate>Wed, 30 Mar 2022 21:52:50 +0800</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>欧拉回路及其相关问题</title>
+        <description>&lt;h2 id=&quot;定理及推论&quot;&gt;定理及推论&lt;sup id=&quot;fnref:footnote1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:footnote1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;无向图g存在欧拉通路的充要条件是&quot;&gt;无向图G存在欧拉通路的充要条件是：&lt;/h3&gt;
+&lt;p&gt;G为连通图，并且G仅有两个奇度结点（度数为奇数的顶点）或者无奇度结点。&lt;/p&gt;
+
+&lt;h4 id=&quot;推论1&quot;&gt;推论1&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;当G是仅有两个奇度结点的连通图时，G的欧拉通路必以此两个结点为端点。&lt;/li&gt;
+  &lt;li&gt;G为欧拉图（存在欧拉回路）的充分必要条件是G为无奇度结点的连通图。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;有向图d存在欧拉通路的充要条件是&quot;&gt;有向图D存在欧拉通路的充要条件是：&lt;/h3&gt;
+
+&lt;p&gt;D为有向图，D的基图（即有向图去掉方向）连通，并且所有顶点的出度与入度都相等；或者除两个顶点外，其余顶点的出度与入度都相等，而这两个顶点中一个顶点的出度与入度之差为1，另一个顶点的出度与入度之差为-1。&lt;/p&gt;
+
+&lt;h4 id=&quot;推论2&quot;&gt;推论2：&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;当D除出、入度之差为1，-1的两个顶点之外，其余顶点的出度与入度都相等时，D的有向欧拉通路必以出、入度之差为1的顶点作为始点，以出、入度之差为-1的顶点作为终点。&lt;/li&gt;
+  &lt;li&gt;有向图D为有向欧拉图的充分必要条件是D的基图为连通图，并且所有顶点的出、入度都相等。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;欧拉回路的求解&quot;&gt;欧拉回路的求解&lt;/h2&gt;
+
+&lt;h3 id=&quot;dfs求解&quot;&gt;DFS求解&lt;/h3&gt;
+&lt;p&gt;以&lt;a href=&quot;https://loj.ac/p/10105&quot;&gt;「一本通 3.7 例 1」欧拉回路 - LibreOJ&lt;/a&gt;为例:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;有一天一位灵魂画师画了一张图，现在要你找出欧拉回路，即在图中找一个环使得每条边都在环上出现恰好一次。
+一共两个子任务：&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;这张图是无向图。（$50$分）&lt;/li&gt;
+    &lt;li&gt;这张图是有向图。（$50$分）&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;假设已经确定图G为一个欧拉图，那么我们设C1、C2是图的两个没有公共边，但有至少一个公共顶点的简单回路，我们可以将它们合并成一个新的简单回路C’。&lt;/p&gt;
+
+&lt;p&gt;此时我们只需要按照如下方式合并
+&lt;img src=&quot;/img/2022-03-30_euler_graph/combination.png&quot; style=&quot;zoom:50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;假定Ans序列为欧拉回路遍历顺序。&lt;/p&gt;
+
+&lt;p&gt;我们可以想象欧拉图的某两个部分即为两个环。先进行DFS遍历，直到无法再继续遍历。此时进行回溯。回溯过程中发现路上还有一个环，此时将这个环插入到当前Ans序列（也是一个环）的中间，并不会破坏原有的序列。Ans序列将形成一个更大的回路。&lt;/p&gt;
+
+&lt;p&gt;以下是DFS求解欧拉回路(上述例题)的代码:&lt;/p&gt;
+
+&lt;h2 id=&quot;引用和参考&quot;&gt;引用和参考&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:footnote1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;参考&lt;a href=&quot;https://www.cnblogs.com/wkfvawl/p/9626163.html&quot;&gt;https://www.cnblogs.com/wkfvawl/p/9626163.html&lt;/a&gt; &lt;a href=&quot;#fnref:footnote1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 30 Mar 2022 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2022/03/30/euler-graph/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022/03/30/euler-graph/</guid>
+        
+        <category>欧拉回路</category>
+        
+        <category>一笔画问题</category>
+        
+        
+      </item>
     
       <item>
         <title>Public Polling</title>
