@@ -50,6 +50,96 @@ D为有向图，D的基图（即有向图去掉方向）连通，并且所有顶
 我们可以想象欧拉图的某两个部分即为两个环。先进行DFS遍历，直到无法再继续遍历。此时进行回溯。回溯过程中发现路上还有一个环，此时将这个环插入到当前Ans序列（也是一个环）的中间，并不会破坏原有的序列。Ans序列将形成一个更大的回路。
 
 以下是DFS求解欧拉回路(上述例题)的代码:
+```cpp
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#define MAXN 100010
+#define MAXM 400010
+using namespace std;
+
+int head[MAXN], to[MAXM], nxt[MAXM], cnt = 1;
+void add_edge(int u, int v) {
+    to[++cnt] = v;
+    nxt[cnt] = head[u];
+    head[u] = cnt;
+    return ;
+}
+bool flag[MAXM];
+int outnode[MAXN], innode[MAXN], ans[MAXN], tt;
+int type, n, m;
+void dfs(int x) {
+    for (int &i = head[x]; i; i = nxt[i]) {
+        int y = to[i];
+        int c = (type == 1 ? i / 2 : i - 1);
+        int sig = i % 2;
+
+        if (flag[c])
+            continue;
+
+        flag[c] = 1;
+        dfs(y);
+
+        if (type == 1)
+            ans[++tt] = (sig ? -c : c);
+        else
+            ans[++tt] = c;
+    }
+}
+
+int main() {
+    scanf("%d", &type);
+    scanf("%d%d", &n, &m);
+
+    for (int i = 1; i <= m; i ++) {
+        int x, y;
+        scanf("%d%d", &x, &y);
+        add_edge(x, y);
+
+        if (type == 1) {
+            add_edge(y, x);
+        }
+
+        ++ outnode[x];
+        ++ innode[y];
+    }
+
+    if (type == 1) {
+        for (int i = 1; i <= n; i ++) {
+            if ((innode[i] + outnode[i]) % 2) {
+                printf("NO");
+                return 0;
+            }
+        }
+    } else {
+        for (int i = 1; i <= n; i ++) {
+            if (innode[i] != outnode[i]) {
+                printf("NO");
+                return 0;
+            }
+        }
+    }
+
+    for (int i = 1; i <= n; i ++) {
+        if (head[i]) {
+            dfs(i);
+            break;
+        }
+    }
+    if (tt != m) {
+        printf("NO");
+        return 0;
+    }
+    printf("YES\n");
+
+    for (int i = m; i >= 1; i --) {
+        printf("%d ", ans[i]);
+    }
+
+    return 0;
+}
+```
 
 ## 引用和参考
 [^footnote1]:参考[https://www.cnblogs.com/wkfvawl/p/9626163.html](https://www.cnblogs.com/wkfvawl/p/9626163.html)
