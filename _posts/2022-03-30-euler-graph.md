@@ -1,14 +1,13 @@
 ---
 layout: post
 title: "欧拉回路及其相关问题"
-subtitle: "基本定理、DFS求解和Fleury算法"
+subtitle: "基本定理、和DFS求解"
 date: 2022-03-30
 author: "Luke Alpha"
 header-img: "img/post-bg-2015.jpg"
 mathjax: true
 tags: 
-    - 欧拉回路
-    - 一笔画问题
+    - 图论
 ---
 ## 定理及推论[^footnote1]
 
