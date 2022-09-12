@@ -44,7 +44,7 @@ T(n)&\approx&k^{\log_{m}n} + n^dq^i\nonumber\\
 &=&O(n^{\log_{m}k})\\
 \\
 &\ &当q = 1\ ,即k = m^d时\    \\
-T(n)&\approx&k^{\log_{m}n} + n^di\nonumber    \\
+T(n)&=&k^{\log_{m}n} + n^di\nonumber    \\
 &=&O(n^d\log_{m}{n})
 \end{eqnarray}
 $$
